@@ -43,6 +43,7 @@ from img2table.ocr import PaddleOCR
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
 import os
+import uvicorn
 
 app = FastAPI()
 
@@ -143,3 +144,7 @@ async def get_subjects_slots():
     
     
     return {"subjects": subjects, "slots": slots}
+
+if __name__ == "__main__":
+    # Run the FastAPI app with Uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
